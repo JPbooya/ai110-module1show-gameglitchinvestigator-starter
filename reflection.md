@@ -4,19 +4,21 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 ## 1. What was broken when you started?
 
-- What did the game look like the first time you ran it?
-- List at least two concrete bugs you noticed at the start  
-  (for example: "the hints were backwards").
+- While playing the game I notice some of my guesses did not match the hints and also the new game did not properly reset the game. 
 
 **Bug Reproduction Log**
 
 Document at least 3 bugs you found. Add rows as needed.
 
-| Input | Expected Behavior | Actual Behavior | Console Output / Error |
-|-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
+| Input |             Expected Behavior |           Actual Behavior |                                Console Output / Error |
+|-------|            -------------------|           -----------------|------------------------|
+Guessed 60,      "Go higer" Hint 60 was to low      messaged showed but arrow showed wrong direction.     none
+output was 80.
+
+Clicked new game      Game resets fully             won/lost screen presisted, game was unplayable.       none
+after winning a round
+
+guessed a number        score goes down.            score results went up instead of down.                           none  
 
 ---
 
