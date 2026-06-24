@@ -26,28 +26,46 @@ It wrote the code, ran away, and now the game is unplayable.
 ## 📝 Document Your Experience
 
 - [ ] Describe the game's purpose.
+A number guessing game where the player tries to guess a secret number within a limited number of attempts. The player receives hints after each guess and a score that updates based on performance.
+
 - [ ] Detail which bugs you found.
+Found 6 bugs including backwards hints, string conversion on even attempts, New Game not resetting status/history, hardcoded difficulty range, score increasing on wrong guesses, and attempts starting at 1 instead of 0.
+
 - [ ] Explain what fixes you applied.
+Fixed hint messages in check_guess, removed string conversion bug, fixed New Game to reset status/history and use correct difficulty range, fixed score to always decrease on wrong guesses, and fixed attempts to start at 0.
+
+
 
 ## 📸 Demo Walkthrough
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. User selects "Normal" difficulty (range 1-100, 8 attempts)
+2. User enters a guess of 40 → Game returns "Go HIGHER" (secret is higher)
+3. User enters a guess of 70 → Game returns "Go LOWER" (secret is lower)
+4. Score decreases by 5 after each wrong guess
+5. User enters a guess of 55 → "🎉 Correct!" Game ends with final score displayed
+6. User clicks "New Game" → Game fully resets with new secret number
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
 ## 🧪 Test Results
 
-```
-# Paste your pytest output here, e.g.:
-# pytest tests/
-# ========================= X passed in 0.XXs =========================
-```
+pytest tests/test_game_logic.py -v
+======================= test session starts =======================
+platform darwin -- Python 3.12.0, pytest-9.1.1, pluggy-1.6.0 -- /Library/Frameworks/Python.framework/Versions/3.12/bin/python3.12
+cachedir: .pytest_cache
+rootdir: /Users/johncarloperez/Desktop/game-glitch-investigate
+plugins: anyio-4.13.0
+collected 5 items                                                 
+
+tests/test_game_logic.py::test_winning_guess PASSED         [ 20%]
+tests/test_game_logic.py::test_guess_too_high PASSED        [ 40%]
+tests/test_game_logic.py::test_guess_too_low PASSED         [ 60%]
+tests/test_game_logic.py::test_update_score_wrong_guess PASSED [ 80%]
+tests/test_game_logic.py::test_parse_guess_invalid PASSED   [100%]
+
+======================== 5 passed in 0.02s ========================
 
 ## 🚀 Stretch Features
 
